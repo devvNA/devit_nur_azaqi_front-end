@@ -50,20 +50,7 @@ Aplikasi manajemen produk sederhana menggunakan Flutter dengan state management 
 
 ## Struktur Project
 
-lib/
-├── app/
-│ ├── core/
-│ │ ├── bindings/
-│ │ ├── helpers/
-│ │ └── widgets/
-│ ├── data/
-│ │ ├── extensions/
-│ │ └── models/
-│ ├── modules/
-│ │ ├── add_barang/
-│ │ └── list_barang/
-│ └── routes/
-└── main.dart
+<img src="structure.png" width="300"/>
 
 ## Cara Menjalankan Aplikasi
 
