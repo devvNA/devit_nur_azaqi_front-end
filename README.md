@@ -49,3 +49,39 @@ Aplikasi manajemen produk sederhana menggunakan Flutter dengan state management 
 - Animation Search Bar
 
 ## Struktur Project
+
+lib/
+├── app/
+│ ├── core/
+│ │ ├── bindings/
+│ │ ├── helpers/
+│ │ └── widgets/
+│ ├── data/
+│ │ ├── extensions/
+│ │ └── models/
+│ ├── modules/
+│ │ ├── add_barang/
+│ │ └── list_barang/
+│ └── routes/
+└── main.dart
+
+## Cara Menjalankan Aplikasi
+
+1. Pastikan Flutter SDK sudah terinstall
+2. Clone repository ini
+3. Jalankan perintah untuk menginstall dependencies:
+4. Jalankan aplikasi:
+
+## ScreenShot
+
+| List Barang                    | Bulk Delete                    |
+| ------------------------------ | ------------------------------ |
+| <img src="1.png" width="300"/> | <img src="2.png" width="300"/> |
+
+| Detail Product                 | Tambah Product (invalid)       |
+| ------------------------------ | ------------------------------ |
+| <img src="3.png" width="300"/> | <img src="4.png" width="300"/> |
+
+| Tambah Product (filled)        | Search                         |
+| ------------------------------ | ------------------------------ |
+| <img src="5.png" width="300"/> | <img src="6.png" width="300"/> |

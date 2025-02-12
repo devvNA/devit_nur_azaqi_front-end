@@ -14,15 +14,14 @@ class ListBarangController extends GetxController {
   final categories = <Category>[].obs;
   final isEditMode = false.obs;
   final RxSet<int> selectedItems = <int>{}.obs;
-  final scrollController = ScrollController();
   final searchQuery = ''.obs;
   final searchProducts = <Product>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    fetchProducts();
     fetchCategories();
+    fetchProducts();
     _initializeSearch();
   }
 
@@ -59,17 +58,25 @@ class ListBarangController extends GetxController {
     }
   }
 
-  Future<void> fetchCategories() async {
-    final data = await DatabaseHelper.getAllCategories();
-    for (var category in data) {
-      log('category: ${category.toMap()}');
-    }
-  }
-
   String getCategoryName(int? categoryId) {
     if (categoryId == null) return 'Tidak ada kategori';
+
+    if (categories.isEmpty) {
+      fetchCategories();
+      return 'Memuat kategori...';
+    }
+
     final category = categories.firstWhereOrNull((c) => c.id == categoryId);
     return category?.namaKategori ?? 'Kategori tidak ditemukan';
+  }
+
+  Future<void> fetchCategories() async {
+    try {
+      final result = await DatabaseHelper.getAllCategories();
+      categories.assignAll(result);
+    } catch (e) {
+      log('Error loading categories: $e');
+    }
   }
 
   Future<void> onRefresh() async {
